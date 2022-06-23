@@ -22,6 +22,8 @@ app.use(async(req,res,next)=> {
 })
 
 app.use('/region',routes.RegRoute)
+app.use('/employee',routes.EmpRoute)
+app.use('/user',routes.UsrRoute)
 
 const dropDatabaseSync = false
 

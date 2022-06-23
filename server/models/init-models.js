@@ -24,6 +24,7 @@ const _employees = require("./employees");
 const _jobs = require("./jobs");
 const _locations = require("./locations");
 const _regions = require("./regions");
+const _users = require("./users");
 
 function initModels(sequelize) {
   const countries = _countries(sequelize, DataTypes);
@@ -33,6 +34,7 @@ function initModels(sequelize) {
   const jobs = _jobs(sequelize, DataTypes);
   const locations = _locations(sequelize, DataTypes);
   const regions = _regions(sequelize, DataTypes);
+  const users = _users(sequelize, DataTypes);
 
   locations.belongsTo(countries, { as: "country", foreignKey: "country_id"});
   countries.hasMany(locations, { as: "locations", foreignKey: "country_id"});
@@ -57,6 +59,7 @@ function initModels(sequelize) {
     jobs,
     locations,
     regions,
+    users,
   };
 }
 

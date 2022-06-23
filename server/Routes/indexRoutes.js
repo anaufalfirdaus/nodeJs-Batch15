@@ -1,5 +1,8 @@
 import RegRoute from'./regionRoute'
-
+import EmpRoute from './empRoute'
+import UsrRoute from './userRoute'
 export default {
-    RegRoute
+    RegRoute,
+    EmpRoute,
+    UsrRoute
 }
