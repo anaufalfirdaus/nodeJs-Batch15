@@ -24,6 +24,11 @@ app.use(async(req,res,next)=> {
 app.use('/region',routes.RegRoute)
 app.use('/employee',routes.EmpRoute)
 app.use('/user',routes.UsrRoute)
+app.use('/country',routes.countryRoute);
+app.use('/location',routes.locationRoute);
+app.use('/department',routes.departmentRoute);
+app.use('/dependent',routes.dependentRoute);
+app.use('/job',routes.jobRoute);
 
 const dropDatabaseSync = false
 
