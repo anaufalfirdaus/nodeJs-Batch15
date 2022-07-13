@@ -5,15 +5,12 @@ const findAll=async (req,res)=>{
             include:[{
                 model:req.context.models.departments,
                 as:"departments",
-                required:true,
                 include:[{
                     model:req.context.models.employees,
                     as:"employees",
-                    required:true,
                     include:[{
                         model:req.context.models.dependents,
                         as:"dependents",
-                        required:true,
                     }]
                 }]
             }]
@@ -36,7 +33,6 @@ const findOne=async (req,res)=>{
 }
 
 const create=async (req,res)=>{
-    const checkCountry=req.countries
     try{
         const location=await req.context.models.locations.create({
             location_id:req.body.location_id,
@@ -44,7 +40,7 @@ const create=async (req,res)=>{
             postal_code:req.body.postal_code,
             city:req.body.city,
             state_province:req.body.state_province,
-            country_id:checkCountry.country_id
+            country_id:req.body.country_id
         })
         return res.send(location)
     }catch(error){

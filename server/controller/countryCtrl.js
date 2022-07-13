@@ -5,11 +5,9 @@ const findAll=async (req,res)=>{
             include:[{
                 model:req.context.models.locations,
                 as:"locations",
-                required:true,
                 include: {
                     model: req.context.models.departments,
-                    as:"departments",
-                    required:true
+                    as:"departments"
                   }
             }]
         })
@@ -31,12 +29,11 @@ const findOne=async (req,res)=>{
 }
 
 const create=async (req,res)=>{
-    const checkReg=req.regions
     try{
         const country=await req.context.models.countries.create({
             country_id:req.body.country_id,
             country_name:req.body.country_name,
-            region_id:checkReg.region_id
+            region_id:req.body.region_id
         })
         return res.send(country)
     }catch(error){

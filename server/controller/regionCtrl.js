@@ -7,8 +7,6 @@ const findAll = async (req,res)=>{
               //  all : true
               model : req.context.models.countries,
               as : "countries",
-              required: true,
-              right : true
             }]
         })
         return res.send(region)
