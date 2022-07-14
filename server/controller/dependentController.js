@@ -24,13 +24,14 @@ const findOne=async (req,res)=>{
 }
 
 const create=async (req,res)=>{
+    const checkEmployee=req.employees
     try{
         const dependent=await req.context.models.dependents.create({
             dependent_id: req.body.dependent_id,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             relationship: req.body.relationship,
-            employee_id: req.body.employee_id
+            employee_id: checkEmployee.employee_id
         })
         return res.send(dependent)
     }catch(error){

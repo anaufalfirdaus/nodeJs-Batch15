@@ -6,7 +6,7 @@ const findAll = async (req,res)=>{
             include : [{
               //  all : true
               model : req.context.models.countries,
-              as : "countries",
+              as : "countries"
             }]
         })
         return res.send(region)

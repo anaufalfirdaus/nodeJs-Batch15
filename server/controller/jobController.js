@@ -5,9 +5,11 @@ const findAll=async (req,res)=>{
             include:[{
                 model:req.context.models.employees,
                 as:"employees",
+                required:true,
                 include: {
                     model: req.context.models.dependents,
                     as:"dependents",
+                    required:true
                   }
             }]
         })
