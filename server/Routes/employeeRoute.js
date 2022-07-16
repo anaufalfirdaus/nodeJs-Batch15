@@ -10,6 +10,7 @@ router.post('/',uploadDownload.uploadFiles,indexController.employeeCtrl.create)
 router.post('/new/',indexController.employeeCtrl.create1)
 router.post('/next/',indexController.employeeCtrl.createNext,indexController.dependentCtrl.create)
 router.put('/:id',uploadDownload.uploadFiles,indexController.employeeCtrl.update)
+router.put('/nofile/:id',indexController.employeeCtrl.updateNoFile)
 router.delete('/:id',indexController.employeeCtrl.deleted)
 router.get('/file/:filename',uploadDownload.showFile)
 
